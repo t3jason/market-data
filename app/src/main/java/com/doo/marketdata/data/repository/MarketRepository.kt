@@ -23,4 +23,8 @@ class MarketRepository(
     fun getMarketUpdates(): Flow<List<MarketItem>> {
         return webSocket.listenToMarketUpdates(apiService.fetchMarketData())
     }
+
+    fun refreshMarketData(): List<MarketItem> {
+        return apiService.fetchMarketData()
+    }
 }
